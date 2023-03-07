@@ -18,8 +18,8 @@
             <form action="index.php" method="POST">
                 <p id="success-message"> Conta criada com sucesso! </p>
                 <p id="fail-alert"> Credenciais incorretas, tente novamente. </p>
-                <input type="text" name="Username" placeholder="Nome de usuário" autofocus>
-                <input type="password" name="Password" placeholder="Sua senha">
+                <input type="text" name="Username" placeholder="Nome de usuário" required autofocus>
+                <input type="password" name="Password" placeholder="Sua senha" required>
                 <input type="submit" value="Entrar">
             </form>
             <p>Ainda não criou uma conta? <a href="newAccount.php">Criar conta</a></p>
@@ -27,7 +27,7 @@
     </section>
 </body>
 <?php
-if(isset($_GET['Message'])){
+if(isset($_GET['userCreated'])){
     echo '<script>
         document.getElementById("success-message").style.display = "block";
          document.getElementsByClassName("login")[0].style.height = "360px";
@@ -36,7 +36,7 @@ if(isset($_GET['Message'])){
 
 if(isset($_POST["Username"]) && isset($_POST["Password"])){
    require_once("../../modules/dbauth/define_constants.php");
-   require_once("../../modules/classes/Connection.php");
+   require_once("../../modules/dbauth/Connection.php");
    include("../../modules/classes/LoginClass.php");
 
    try{
