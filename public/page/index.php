@@ -16,16 +16,23 @@
                 <img src="../img/toppng.com-gear-icon-white-white-cogs-icon-384x369.png" alt="">
             </div>
             <form action="index.php" method="POST">
+                <p id="success-message"> Conta criada com sucesso! </p>
                 <p id="fail-alert"> Credenciais incorretas, tente novamente. </p>
                 <input type="text" name="Username" placeholder="Nome de usuário" autofocus>
                 <input type="password" name="Password" placeholder="Sua senha">
                 <input type="submit" value="Entrar">
             </form>
-            <p>Ainda não criou uma conta? <a href="#">Criar conta</a></p>
+            <p>Ainda não criou uma conta? <a href="newAccount.php">Criar conta</a></p>
         </div>
     </section>
 </body>
 <?php
+if(isset($_GET['Message'])){
+    echo '<script>
+        document.getElementById("success-message").style.display = "block";
+         document.getElementsByClassName("login")[0].style.height = "360px";
+    </script>';
+}
 
 if(isset($_POST["Username"]) && isset($_POST["Password"])){
    require_once("../../modules/dbauth/define_constants.php");
