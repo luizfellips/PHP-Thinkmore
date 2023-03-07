@@ -10,3 +10,4 @@ Um sistema C.R.U.D básico que estou projetando para estudar PHP.
 ## Funcionalidades até o momento
 - Tela de log-in
 - Autenticação de usuário
+- Criação de usuário e conta monetária ( registro baseado em stored procedure )
